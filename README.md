@@ -39,7 +39,7 @@ Python.
 1. Assurez-vous d'utiliser **Python 3.9** ou une version ultérieure.
 2. Clonez ce projet :
    ```bash
-   git clone https://github.com/nom_utilisateur/code_and_decode.git
+   git clone https://github.com/Min3r0/code_and_decode.git
    ```
 3. Placez-vous dans le dossier :
    ```bash
