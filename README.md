@@ -1,10 +1,15 @@
 # Code_and_Decode
 
-Ce projet est une implémentation du chiffrement et du déchiffrement de César. Vous pouvez chiffrer un message avec une
-clé spécifique ou déchiffrer un message avec une clé fournie. Si aucune clé n'est fournie lors du déchiffrement, le
+Ce projet est une implémentation du chiffrement et du déchiffrement utilisant deux méthodes : César et Vigenère. Vous
+pouvez chiffrer un message avec une
+clé spécifique ou déchiffrer un message avec une clé fournie. Dans le cas du chiffrement César, si aucune clé n'est
+fournie lors du déchiffrement, le
 programme tentera toutes les clés possibles (force brute).
 
 ## Fonctionnalités 🛠️
+
+- `vigenere_code` : Permet de chiffrer un message en utilisant une clé avec l'algorithme de Vigenère.
+- `vigenere_decode` : Permet de déchiffrer un message chiffré avec une clé via l'algorithme de Vigenère.
 
 - `caesar_code` : Permet de chiffrer un message donné avec un décalage spécifique.
 - `caesar_decode` : Permet de déchiffrer un message avec une clé donnée ou de tenter toutes les clés via une approche de
@@ -12,17 +17,26 @@ programme tentera toutes les clés possibles (force brute).
 
 ## Exemple d'utilisation
 
+Voici un exemple d'utilisation des modules de chiffrement et de déchiffrement pour César et Vigenère :
+
 Voici un exemple de code principal (`Main.py`) utilisant les deux modules de chiffrement et de déchiffrement :
 
 ```python
 from Caesar_code import caesar_code
 from Caesar_decode import caesar_decode
+from Vigenere_code import vigenere_code
+from Vigenere_decode import vigenere_decode
 
 print(caesar_decode("erqmrxu à wrxv !"))
 print(caesar_code("Hello World !", 8))
+print(vigenere_code("Hello World !", "KEY"))
+print(vigenere_decode("RIJVS UYVJN !", "KEY"))
 ```
 
 ## Fichiers du projet 📂
+
+- **`Vigenere_code.py`** : Contient la fonction `vigenere_code` pour chiffrer un message avec la méthode de Vigenère.
+- **`Vigenere_decode.py`** : Contient la fonction `vigenere_decode` pour déchiffrer un message avec une clé.
 
 - **`Main.py`** : Contient un exemple démontrant comment utiliser les fonctions de chiffrement et de déchiffrement.
 - **`Caesar_code.py`** : Contient la fonction `caesar_code` pour chiffrer un message.
@@ -51,6 +65,34 @@ Python.
    ```
 
 ## Fonctionnement des Modules ⚙️
+
+### `Vigenere_code.py`
+
+Cette fonction utilise une clé définie par l'utilisateur pour appliquer le chiffrement de Vigenère à un message.
+
+Exemple :
+
+```python
+from Vigenere_code import vigenere_code
+
+message = "hello world"
+cle = "KEY"
+print(vigenere_code(message, cle))  # Sortie : RIJVS UYVJN
+```
+
+### `Vigenere_decode.py`
+
+Permet de décrypter un message chiffré par la méthode de Vigenère à l'aide d'une clé donnée.
+
+Exemple :
+
+```python
+from Vigenere_decode import vigenere_decode
+
+message = "RIJVS UYVJN"
+cle = "KEY"
+print(vigenere_decode(message, cle))  # Sortie : hello world
+```
 
 ### `Caesar_code.py`
 
