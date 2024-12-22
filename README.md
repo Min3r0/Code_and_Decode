@@ -1,8 +1,10 @@
 # Code_and_Decode
 
-Ce projet est une implémentation du chiffrement et du déchiffrement utilisant deux méthodes : César et Vigenère. Vous
-pouvez chiffrer un message avec une
-clé spécifique ou déchiffrer un message avec une clé fournie. Dans le cas du chiffrement César, si aucune clé n'est
+Ce projet est une implémentation du chiffrement et du déchiffrement utilisant trois méthodes : César, Vigenère, et
+Affine. Vous
+pouvez chiffrer un message avec une clé spécifique ou, pour la méthode Affine, avec des paramètres spécifiques (a et b)
+respectant des contraintes mathématiques.
+clé fournie. Dans le cas du chiffrement César, si aucune clé n'est
 fournie lors du déchiffrement, le
 programme tentera toutes les clés possibles (force brute).
 
@@ -10,7 +12,8 @@ programme tentera toutes les clés possibles (force brute).
 
 - `vigenere_code` : Permet de chiffrer un message en utilisant une clé avec l'algorithme de Vigenère.
 - `vigenere_decode` : Permet de déchiffrer un message chiffré avec une clé via l'algorithme de Vigenère.
-
+- `affine_code` : Permet de chiffrer un message en utilisant l'algorithme de chiffrement affine.
+- `affine_decode` : Permet de déchiffrer un message chiffré avec l'algorithme affine.
 - `caesar_code` : Permet de chiffrer un message donné avec un décalage spécifique.
 - `caesar_decode` : Permet de déchiffrer un message avec une clé donnée ou de tenter toutes les clés via une approche de
   force brute.
@@ -26,11 +29,15 @@ from Caesar_code import caesar_code
 from Caesar_decode import caesar_decode
 from Vigenere_code import vigenere_code
 from Vigenere_decode import vigenere_decode
+from Affine_code import affine_code
+from Affine_decode import affine_decode
 
 print(caesar_decode("erqmrxu à wrxv !"))
 print(caesar_code("Hello World !", 8))
 print(vigenere_code("Hello World !", "KEY"))
 print(vigenere_decode("RIJVS UYVJN !", "KEY"))
+print(affine_code("Hello World !", 5, 8))
+print(affine_decode("IFMMP XPSME !", 5, 8))
 ```
 
 ## Fichiers du projet 📂
@@ -41,6 +48,8 @@ print(vigenere_decode("RIJVS UYVJN !", "KEY"))
 - **`Main.py`** : Contient un exemple démontrant comment utiliser les fonctions de chiffrement et de déchiffrement.
 - **`Caesar_code.py`** : Contient la fonction `caesar_code` pour chiffrer un message.
 - **`Caesar_decode.py`** : Contient la fonction `caesar_decode` pour décrypter un message avec ou sans clé.
+- **`Affine_code.py`** : Contient la fonction `affine_code` pour chiffrer un message avec la méthode affine.
+- **`Affine_decode.py`** : Contient la fonction `affine_decode` pour déchiffrer un message avec la méthode affine.
 - **`README.md`** : Ce fichier.
 
 ## Dépendances
@@ -65,6 +74,36 @@ Python.
    ```
 
 ## Fonctionnement des Modules ⚙️
+
+### `Affine_code.py`
+
+Cette fonction applique l'algorithme de chiffrement affine en utilisant les paramètres définis par l'utilisateur.
+
+Exemple :
+
+```python
+from Affine_code import affine_code
+
+message = "hello world"
+a = 5
+b = 8
+print(affine_code(message, a, b))  # Sortie : IFMMP XPSME
+```
+
+### `Affine_decode.py`
+
+Permet de décrypter un message chiffré en utilisant l'algorithme affine avec des paramètres fournis.
+
+Exemple :
+
+```python
+from Affine_decode import affine_decode
+
+message = "IFMMP XPSME"
+a = 5
+b = 8
+print(affine_decode(message, a, b))  # Sortie : hello world
+```
 
 ### `Vigenere_code.py`
 
