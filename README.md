@@ -1,175 +1,138 @@
-# Code_and_Decode
+# Lisez-moi
 
-Ce projet est une implémentation du chiffrement et du déchiffrement utilisant trois méthodes : César, Vigenère, et
-Affine. Vous
-pouvez chiffrer un message avec une clé spécifique ou, pour la méthode Affine, avec des paramètres spécifiques (a et b)
-respectant des contraintes mathématiques.
-clé fournie. Dans le cas du chiffrement César, si aucune clé n'est
-fournie lors du déchiffrement, le
-programme tentera toutes les clés possibles (force brute).
+# Projet : Application de Chiffrement/Déchiffrement 🔐
 
-## Fonctionnalités 🛠️
+## Description 📝
 
-- `vigenere_code` : Permet de chiffrer un message en utilisant une clé avec l'algorithme de Vigenère.
-- `vigenere_decode` : Permet de déchiffrer un message chiffré avec une clé via l'algorithme de Vigenère.
-- `affine_code` : Permet de chiffrer un message en utilisant l'algorithme de chiffrement affine.
-- `affine_decode` : Permet de déchiffrer un message chiffré avec l'algorithme affine.
-- `caesar_code` : Permet de chiffrer un message donné avec un décalage spécifique.
-- `caesar_decode` : Permet de déchiffrer un message avec une clé donnée ou de tenter toutes les clés via une approche de
-  force brute.
+Ce projet est un outil de chiffrement et de déchiffrement implémenté en Python. Il prend en charge diverses techniques,
+notamment : 🔑
 
-## Exemple d'utilisation
+- **Chiffrement de César**
+- **Chiffrement Affine**
+- **Chiffrement de Vigenère**
+- **Encodage/Décodage en binaire**
+  Les utilisateurs peuvent chiffrer et déchiffrer des messages avec ces algorithmes en utilisant des clés et paramètres
+  personnalisés.
 
-Voici un exemple d'utilisation des modules de chiffrement et de déchiffrement pour César et Vigenère :
+## Fonctionnalités 🔒
 
-Voici un exemple de code principal (`Main.py`) utilisant les deux modules de chiffrement et de déchiffrement :
+- **Chiffrer des messages :** Sécurisez vos messages en clair en utilisant l'une des méthodes de chiffrement prises en
+  charge.
+- **Déchiffrer des messages :** Récupérez le texte en clair original en déchiffrant les données encodées.
+- **Entrées personnalisées :** Entrez vos clés, paramètres et messages pour le chiffrement ou le déchiffrement.
+- **Algorithmes pris en charge :**
+    - **Chiffrement de César :** Un chiffrement par substitution qui décale les caractères d'un nombre fixe.
+    - **Chiffrement Affine :** Applique des formules mathématiques pour le chiffrement et le déchiffrement.
+    - **Chiffrement de Vigenère :** Utilise une clé répétée pour une substitution plus sécurisée.
+    - **Conversion en binaire :** Encodez et décodez du texte en représentations binaires.
 
-```python
-from Caesar_code import caesar_code
-from Caesar_decode import caesar_decode
-from Vigenere_code import vigenere_code
-from Vigenere_decode import vigenere_decode
-from Affine_code import affine_code
-from Affine_decode import affine_decode
+## Prérequis 🛠️
 
-print(caesar_decode("erqmrxu à wrxv !"))
-print(caesar_code("Hello World !", 8))
-print(vigenere_code("Hello World !", "KEY"))
-print(vigenere_decode("RIJVS UYVJN !", "KEY"))
-print(affine_code("Hello World !", 5, 8))
-print(affine_decode("IFMMP XPSME !", 5, 8))
-```
+Assurez-vous que votre système dispose des éléments suivants installés :
 
-## Fichiers du projet 📂
+- **Python :** Version 3.9+
+- **Bibliothèques requises :** Installez les dépendances avec :
 
-- **`Vigenere_code.py`** : Contient la fonction `vigenere_code` pour chiffrer un message avec la méthode de Vigenère.
-- **`Vigenere_decode.py`** : Contient la fonction `vigenere_decode` pour déchiffrer un message avec une clé.
+  ```bash
+  pip install -r requirements.txt
+  ```
 
-- **`Main.py`** : Contient un exemple démontrant comment utiliser les fonctions de chiffrement et de déchiffrement.
-- **`Caesar_code.py`** : Contient la fonction `caesar_code` pour chiffrer un message.
-- **`Caesar_decode.py`** : Contient la fonction `caesar_decode` pour décrypter un message avec ou sans clé.
-- **`Affine_code.py`** : Contient la fonction `affine_code` pour chiffrer un message avec la méthode affine.
-- **`Affine_decode.py`** : Contient la fonction `affine_decode` pour déchiffrer un message avec la méthode affine.
-- **`README.md`** : Ce fichier.
+## Exemples 💡
 
-## Dépendances
+**1. Chiffrement de César**
 
-Aucune dépendance externe n'est requise pour ce projet. Le code utilise uniquement des fonctionnalités natives de
-Python.
-
-## Instructions pour exécuter le projet 📋
-
-1. Assurez-vous d'utiliser **Python 3.9** ou une version ultérieure.
-2. Clonez ce projet :
-   ```bash
-   git clone https://github.com/Min3r0/code_and_decode.git
-   ```
-3. Placez-vous dans le dossier :
-   ```bash
-   cd code_and_decode
-   ```
-4. Exécutez le fichier `Main.py` pour tester les fonctionnalités :
-   ```bash
-   python Main.py
-   ```
-
-## Fonctionnement des Modules ⚙️
-
-### `Affine_code.py`
-
-Cette fonction applique l'algorithme de chiffrement affine en utilisant les paramètres définis par l'utilisateur.
-
-Exemple :
-
-```python
-from Affine_code import affine_code
-
-message = "hello world"
-a = 5
-b = 8
-print(affine_code(message, a, b))  # Sortie : IFMMP XPSME
-```
-
-### `Affine_decode.py`
-
-Permet de décrypter un message chiffré en utilisant l'algorithme affine avec des paramètres fournis.
-
-Exemple :
-
-```python
-from Affine_decode import affine_decode
-
-message = "IFMMP XPSME"
-a = 5
-b = 8
-print(affine_decode(message, a, b))  # Sortie : hello world
-```
-
-### `Vigenere_code.py`
-
-Cette fonction utilise une clé définie par l'utilisateur pour appliquer le chiffrement de Vigenère à un message.
-
-Exemple :
-
-```python
-from Vigenere_code import vigenere_code
-
-message = "hello world"
-cle = "KEY"
-print(vigenere_code(message, cle))  # Sortie : RIJVS UYVJN
-```
-
-### `Vigenere_decode.py`
-
-Permet de décrypter un message chiffré par la méthode de Vigenère à l'aide d'une clé donnée.
-
-Exemple :
-
-```python
-from Vigenere_decode import vigenere_decode
-
-message = "RIJVS UYVJN"
-cle = "KEY"
-print(vigenere_decode(message, cle))  # Sortie : hello world
-```
-
-### `Caesar_code.py`
-
-Cette fonction applique un décalage (clé) fourni par l'utilisateur pour chiffrer un message.
-
-Exemple :
+Pour chiffrer avec le chiffrement de César :
 
 ```python
 from Caesar_code import caesar_code
 
-message = "hello world"
-decallage = 3
-print(caesar_code(message, decallage))  # Sortie : khoor zruog
+encrypted_message = caesar_code("Hello", shift=3)
+print(encrypted_message)  # Output: Khoor
 ```
 
-### `Caesar_decode.py`
-
-Permet de décrypter un message chiffré par la méthode de César. Si aucune clé n'est donnée, toutes les clés possibles
-sont testées pour tenter de retrouver le texte d'origine.
-
-Exemple avec clé :
+Pour déchiffrer avec le chiffrement de César :
 
 ```python
 from Caesar_decode import caesar_decode
 
-message = "khoor zruog"
-cle = 3
-print(caesar_decode(message, cle))  # Sortie : hello world
+decrypted_message = caesar_decode("Khoor", shift=3)
+print(decrypted_message)  # Output: Hello
 ```
 
-Exemple sans clé :
+**2. Chiffrement Affine**
+
+Pour chiffrer avec le chiffrement Affine :
 
 ```python
-from Caesar_decode import caesar_decode
+from Affine_code import affine_code
 
-message = "khoor zruog"
-print(caesar_decode(message))  # Affiche toutes les possibilités de décryptage
+encrypted_message = affine_code("Hello", a=5, b=8)
+print(encrypted_message)  # Output: Encrypted text
 ```
+
+Pour déchiffrer avec le chiffrement Affine :
+
+```python
+from Affine_decode import affine_decode
+
+decrypted_message = affine_decode("Encrypted text", a=5, b=8)
+print(decrypted_message)  # Output: Hello
+```
+
+**3. Chiffrement de Vigenère**
+
+Pour chiffrer avec le chiffrement de Vigenère :
+
+```python
+from Vigenere_code import vigenere_code
+
+encrypted_message = vigenere_code("Hello", "KEY")
+print(encrypted_message)  # Output: Vigenère-encrypted text
+```
+
+Pour déchiffrer avec le chiffrement de Vigenère :
+
+```python
+from Vigenere_decode import vigenere_decode
+
+decrypted_message = vigenere_decode("Vigenère-encrypted text", "KEY")
+print(decrypted_message)  # Output: Hello
+```
+
+**4. Conversion en Binaire**
+
+Pour encoder en binaire :
+
+```python
+from Binaire_code import binary_code
+
+binary_message = binary_code("Hello")
+print(binary_message)  # Output: Binary representation
+```
+
+Pour décoder depuis le binaire :
+
+```python
+from Binaire_decode import binary_decode
+
+text_message = binary_decode("Binary representation")
+print(text_message)  # Output: Hello
+```
+
+## Comment Exécuter 💻
+
+1. Clonez le dépôt :
+
+   ```bash
+   git clone https://github.com/Min3r0/Code_and_Decode
+   cd encryption_decryption_app
+   ```
+
+2. Lancez l'application :
+
+   ```bash
+   python main.py
+   ```
 
 ## Licence 📜
 
